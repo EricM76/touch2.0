@@ -45,21 +45,21 @@
 
 
 <section class="p-2" style="background-color:rgba(0,0,0,0.0);">
-    <div class="container h-100 mt-">
-        <div class="d-flex justify-content-center h-100">
+    <div class="container h-100 mt-3">
+        <div class="d-flex justify-content-center h-100 ">
             <div class="user_card mt-5 mb-2">
                 <div class="d-flex justify-content-center">
                     <div class="brand_logo_container">
                         <img src="images/logo.jpg" class="brand_logo" alt="Logo">
                     </div>
                 </div>
-                <div class="d-flex justify-content-center">
+                <div class="d-flex justify-content-center mt-5">
 
                     <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
 
-                        <div class="row mt-1">
-                            <div class="input-group mb-3 col-lg-6">
+                        <div class="row mt-5">
+                            <div class="input-group mb-2 col-lg-6">
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                                 </div>
@@ -72,7 +72,7 @@
                                 @enderror
                             </div>
 
-                            <div class="input-group mb-3 col-lg-6">
+                            <div class="input-group mb-2 col-lg-6">
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                                 </div>
@@ -111,27 +111,79 @@
                         </div>
 
                         <div class="row">
-                            <div class="input-group mb-3 col-lg-6">
-                            <div class="input-group-append">
-                                <span class="input-group-text"><i class="fas fa-address-card"></i></span>
-                            </div>
-                            <input type="text" name="nick" class="form-control input_user" placeholder="nick" disabled>
-
-                            </div>
-
-                            <div class="input-group mb-3 col-lg-6">
-                            <div class="input-group-append">
-                                <span class="input-group-text"><i class="fas fa-image"></i></span>
-                            </div>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="customFile" name="imagen" disabled>
-                                <label class="custom-file-label" for="customFile">Subí tu foto</label>
+                            <div class="input-group mb-2 col-lg-6">
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="fas fa-image"></i></span>
+                                </div>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input @error('foto') is-invalid @enderror" id="file-upload" name="foto" required accept="image/*">
+                                    <label class="custom-file-label" for="customFile">Subí tu foto</label>
+                                </div>
                             </div>
 
+                            <div class="input-group mb-2 col-lg-6">
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="fas fa-address-card"></i></span>
+                                </div>
+                            <input type="text" name="nick" class="form-control @error('nick') is-invalid @enderror" placeholder="nick" required value="{{old('nick')}}">
+                            @error('nick')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                                </div>
+
+
+
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <script>
+                                    window.onload = function(){
+                                        var fileUpload = document.getElementById('file-upload');
+                                        fileUpload.value = null;
+                                    }
+                                    </script>
+                                    <div class="text-center">
+                                        <img class="img-fluid" src="" alt="" id="file-preview" width="100px">
+                                    </div>
+
                             </div>
+                            <script lang="javascript">
+
+                                function readFile(input) {
+                                if (input.files && input.files[0]) {
+                                    var reader = new FileReader();
+                                    reader.onload = function (e) {
+                                        var filePreview = document.getElementById('file-preview')
+                                        filePreview.src = e.target.result;
+                                        console.log(e.target.result);
+                                        var previewZone = document.getElementById('file-preview-zone');
+                                        previewZone.appendChild(filePreview);
+                                    }
+                                    reader.readAsDataURL(input.files[0]);
+                                }
+                            }
+                            var fileUpload = document.getElementById('file-upload');
+                            fileUpload.onchange = function (e) {
+                                readFile(e.srcElement);
+                            };
+                        </script>
+                            <div class="input-group mb-2 col-lg-6">
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="fas fa-edit"></i></span>
+                                </div>
+                                <textarea name="perfil" id="" cols="30" rows="3" class="form-control @error('perfil') is-invalid @enderror" placeholder="perfil de usuario" required value="{{old('perfil')}}"></textarea>
+                            {{-- <input type="text" name="perfil" class="form-control @error('perfil') is-invalid @enderror" placeholder="perfil de usuario" required value="{{old('perfil')}}"> --}}
+                            @error('perfil')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                                </div>
                         </div>
 
-                        <div class="mt-3 login_container">
+                        <div class="mt-1 ">
                         <button type="submit" name="button" class="btn login_btn">Registrarse</button>
                         </div>
 

@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Publication;
+use Carbon\Carbon;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -23,6 +27,52 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $fecha = Carbon::now();
+        $publicado = Publication::all();
+        return view('home',compact('publicado','fecha'));
+    }
+
+    public function publica(Request $datos){
+        $rules = [
+            "titulo" => 'required',
+            "publica" => 'required',
+        ];
+
+        $this->validate($datos,$rules);
+        $user = Auth::user();
+        $publicacion = new Publication();
+
+        $publicacion -> titulo = $datos['titulo'];
+        $publicacion -> publicacion = $datos['publica'];
+        $publicacion -> user_id = $user->id;
+        $publicacion -> imagen = null;
+        $publicacion -> save();
+
+        $publicado = Publication::all();
+        return view('/home',compact('publicado'));
+    }
+
+    public function foto(Request $img)
+    {
+
+        $rules = [
+            "foto" => 'required',
+        ];
+
+        $this->validate($img,$rules);
+
+        if ($img -> file('foto') == null) {
+            return redirect()->back();
+        }
+        $usuario = User::find($img['id']);
+
+        $ruta = $img -> file('foto') -> store('public/images/fotos');
+        $img = basename($ruta);
+
+        $usuario -> foto = $img;
+
+        $usuario -> save();
+        $publicado = Publication::all();
+        return redirect('/home');
     }
 }

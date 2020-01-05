@@ -18,3 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('/home', 'HomeController@publica');
+
+Route::post('/foto','HomeController@foto');
+
+Route::get('/eliminarPublica/{id}','PublicaController@destroy');
