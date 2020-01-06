@@ -34,9 +34,9 @@ class HomeController extends Controller
         $dif = Carbon::now()->diffForHumans(Carbon::now()->subYear());
         $publica = Publication::find(8);
         $ahora = Carbon::now();
-        $dif = Carbon::parse($publica->created_at)->diffForHumans($ahora);
+        
         $publicado = Publication::all();
-        return view('home',compact('publicado','fecha','dif'));
+        return view('home',compact('publicado','ahora','dif'));
     }
 
     public function publica(Request $datos){

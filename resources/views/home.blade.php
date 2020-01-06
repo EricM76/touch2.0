@@ -166,7 +166,7 @@
                                         @php
 
                                         @endphp
-                                        <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>publicado {{Carbon::parse($publica->created_at)->diffForHumans($ahora)}}</div>
+                                        <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>publicado </div>
                                         <h5 class="card-title">{{$publica->titulo}}</h5>
                                         <!-- texto publicAdo -->
                                         <p class="card-text">{{$publica->publicacion}}</p>
