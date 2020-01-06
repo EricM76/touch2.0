@@ -34,31 +34,12 @@ class HomeController extends Controller
         $dif = Carbon::now()->diffForHumans(Carbon::now()->subYear());
         $publica = Publication::find(8);
         $ahora = Carbon::now();
-        
+
         $publicado = Publication::all();
         return view('home',compact('publicado','ahora','dif'));
     }
 
-    public function publica(Request $datos){
-        $rules = [
-            "titulo" => 'required',
-            "publica" => 'required',
-        ];
-
-        $this->validate($datos,$rules);
-        $user = Auth::user();
-        $publicacion = new Publication();
-
-        $publicacion -> titulo = $datos['titulo'];
-        $publicacion -> publicacion = $datos['publica'];
-        $publicacion -> user_id = $user->id;
-        $publicacion -> imagen = null;
-        $publicacion -> save();
-
-        $publicado = Publication::all();
-        return view('/home',compact('publicado'));
-    }
-
+  
     public function foto(Request $img)
     {
 

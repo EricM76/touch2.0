@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::post('/home', 'HomeController@publica');
+Route::post('/publica', 'PublicaController@publica');
 
 Route::post('/foto','HomeController@foto');
 

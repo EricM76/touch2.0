@@ -83,7 +83,7 @@
 
                                     <!-- area para escribir una publicacion -->
                                     <div class="card-body">
-                                        <form action="/home" method="POST" id="publicar" enctype="multipart/form-data">
+                                        <form action="/publica" method="POST" id="publicar" enctype="multipart/form-data">
                                             @csrf
                                             <div class="tab-content" id="myTabContent">
                                                 <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
