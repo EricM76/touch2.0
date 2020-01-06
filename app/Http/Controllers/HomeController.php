@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Publication;
 use Carbon\Carbon;
 use App\User;
+
+
+
 
 class HomeController extends Controller
 {
@@ -27,9 +31,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $fecha = Carbon::now();
+        $dif = Carbon::now()->diffForHumans(Carbon::now()->subYear());
+        $publica = Publication::find(8);
+        $ahora = Carbon::now();
+        $dif = Carbon::parse($publica->created_at)->diffForHumans($ahora);
         $publicado = Publication::all();
-        return view('home',compact('publicado','fecha'));
+        return view('home',compact('publicado','fecha','dif'));
     }
 
     public function publica(Request $datos){
