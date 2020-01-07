@@ -9006,7 +9006,7 @@ button.bg-dark:focus {
 
 .mr-auto,
 .mx-auto {
-  margin-right: auto !important;
+  margin-right: 22rem !important;
 }
 
 .mb-auto,
@@ -11099,4 +11099,3 @@ a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
-

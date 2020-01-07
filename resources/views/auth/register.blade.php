@@ -25,13 +25,13 @@
 
             <ul class="navbar-nav mr-auto">
               <li class="nav-item h5">
-                <a class="nav-link active" href="#">Nosotros</a>
+                <a class="nav-link active" href="/nosotros">Nosotros</a>
               </li>
               <li class="nav-item h5">
-                <a class="nav-link active" href="#">Preguntas frecuentes</a>
+                <a class="nav-link active" href="/preguntasFrecuentes">Preguntas frecuentes</a>
               </li>
               <li class="nav-item h5">
-                <a class="nav-link active" href="#">Testimonios</a>
+                <a class="nav-link active" href="/">Testimonios</a>
               </li>
             </ul>
             {{-- <div class="register p-2">
@@ -59,6 +59,7 @@
                         @csrf
 
                         <div class="row mt-5">
+                          <!-- input nombre -->
                             <div class="input-group mb-2 col-lg-6">
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -72,6 +73,7 @@
                                 @enderror
                             </div>
 
+                          <!-- input email -->
                             <div class="input-group mb-2 col-lg-6">
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="fas fa-envelope"></i></span>
@@ -86,6 +88,7 @@
                             </div>
                         </div>
 
+                     <!-- input contraseña -->
                         <div class="row">
                             <div class="input-group mb-2 col-lg-6">
                                 <div class="input-group-append">
@@ -100,7 +103,7 @@
                                 @enderror
 
                             </div>
-
+                        <!-- comfirmar contraseña -->
                             <div class="input-group mb-2 col-lg-6">
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="fas fa-key"></i></span>
@@ -110,6 +113,7 @@
                             </div>
                         </div>
 
+                       <!-- subir imagen -->
                         <div class="row">
                             <div class="input-group mb-2 col-lg-6">
                                 <div class="input-group-append">
@@ -121,6 +125,7 @@
                                 </div>
                             </div>
 
+                        <!-- input nick -->
                             <div class="input-group mb-2 col-lg-6">
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="fas fa-address-card"></i></span>
@@ -131,11 +136,10 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
-                                </div>
+                            </div>
+                          </div>
 
-
-
-                        </div>
+                    <!-- foto vista previa en registro -->
                         <div class="row">
                             <div class="col-6">
                                 <script>
@@ -169,6 +173,7 @@
                                 readFile(e.srcElement);
                             };
                         </script>
+                        <!-- text area algo sobre ti -->
                             <div class="input-group mb-2 col-lg-6">
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="fas fa-edit"></i></span>
@@ -183,6 +188,7 @@
                                 </div>
                         </div>
 
+                  <!-- div boton  -->
                         <div class="mt-1 ">
                         <button type="submit" name="button" class="btn login_btn">Registrarse</button>
                         </div>

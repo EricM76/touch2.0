@@ -154,7 +154,7 @@
                   <h4 class="mt-4">Angelina Jolie</h4>
 
                   <p class= "text-dark p-2 m-3">
-                     “En Touch 3.0 hay muchas personas en la misma que yo. Soy de EEUU y ahora me encuentro estudiando en Buenos Aires, gracias a esta aplicacion pude hacer  amigos y amigas para no aburrirme y salir a divertirme los fines de semana...y no descarto conocer al amor de mi vida!!”.
+                     “En Touch 2.0 hay muchas personas en la misma que yo. Soy de EEUU y ahora me encuentro estudiando en Buenos Aires, gracias a esta aplicacion pude hacer  amigos y amigas para no aburrirme y salir a divertirme los fines de semana...y no descarto conocer al amor de mi vida!!”.
                   </p>
               </div>
               <div class="col-sm-12 col-md-6 col-lg-3 text-center p-3">
@@ -188,8 +188,8 @@
             <div class="row container-fluid">
 
               <div class="col-lg-4 text-light text-justify">
-                <h1 class="marca p-2">Touch 3.0</h1>
-                    <p class="p-2">Probá conocer hombre y mujeres solos y solas en Touch 3.0, el mayor sitio de citas para buscar pareja y encuentros online de Argentina. En Touch 3.0 estás a un clic de encontrar solos y solas en tu ciudad para iniciar una relación seria o para vivir una aventura romántica. Touch 3.0 cuenta con un servicio de chat y buscador que te permitirán encontrar pareja y concretar citas online de acuerdo a tus intereses y gustos. Miles de mujeres y hombres de Latinoamérica han buscado pareja e iniciaron una relación a partir de nuestro sitio de citas online. Empezá ahora a conocer gente y descubrí la diversión del online dating!.</p>
+                <h1 class="marca p-2">Touch 2.0</h1>
+                    <p class="p-2">Probá conocer hombre y mujeres solos y solas en Touch 2.0, el mayor sitio de citas para buscar pareja y encuentros online de Argentina. En Touch 2.0 estás a un clic de encontrar solos y solas en tu ciudad para iniciar una relación seria o para vivir una aventura romántica. Touch 2.0 cuenta con un servicio de chat y buscador que te permitirán encontrar pareja y concretar citas online de acuerdo a tus intereses y gustos. Miles de mujeres y hombres de Latinoamérica han buscado pareja e iniciaron una relación a partir de nuestro sitio de citas online. Empezá ahora a conocer gente y descubrí la diversión del online dating!.</p>
               </div>
               <div class="col-lg-4 text-light text-justify">
                 <h2 class="seguinos p-2 mt-5 text-center">Seguinos</h2>
@@ -206,7 +206,7 @@
               </div>
               <div class="col-lg-4 text-light text-justify">
                 <h2 class=" p-2 mt-5 text-center">Actualización permanente</h2>
-                  <p class="p-2">Touch 3.0 es un equipo de profesionales que actualiza su informacion constantemente y notifica a todos sus usuarios para que puedan estar al tanto de ellas y poder disfrutar de todo lo que brinda la app. Siempre a la vanguardia en lo que respecta a las citas on line, para que puedas navegar, chatear, compartir y conocer con la maxima seguridad posible a esa persona que te espera del otro lado.</p>
+                  <p class="p-2">Touch 2.0 es un equipo de profesionales que actualiza su informacion constantemente y notifica a todos sus usuarios para que puedan estar al tanto de ellas y poder disfrutar de todo lo que brinda la app. Siempre a la vanguardia en lo que respecta a las citas on line, para que puedas navegar, chatear, compartir y conocer con la maxima seguridad posible a esa persona que te espera del otro lado.</p>
                   <div class="text-center">
                     <form class="" action="#" method="post">
                       <input type="text" name="letter" value="" size="20"><br>
@@ -222,7 +222,7 @@
               <a class="text-white pt-3 m-3" href="">Seguridad</a>
               <a class="text-white pt-3 m-3" href="">Sugerencias</a>
               <a class="text-white pt-3 m-3" href="">Datos</a>
-              <p class="footer-bottom-text mt-2">Todos los derechos reservados por ©Touch3.0</p>
+              <p class="footer-bottom-text mt-2">Todos los derechos reservados por ©Touch2.0</p>
           </footer>
     </body>
 </html>

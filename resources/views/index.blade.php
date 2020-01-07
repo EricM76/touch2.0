@@ -31,6 +31,8 @@
                 </div>
             @endif
 
+              <!-- navbar  -->
+
             <div class="content">
                 <div class="title m-b-md text-center">
                     <img class="img-fluid" src="images/logo.jpg" alt="" width="25%">
@@ -43,6 +45,9 @@
                 </div>
             </div>
         </div> --}}
+
+        <!-- comienza header  -->
+
         <header class="p-2" style="background-color:rgba(0,0,0,0.8);">
             <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
               <div class="col-lg-4">
@@ -60,7 +65,7 @@
                     <a class="nav-link active" href="#nosotros">Nosotros</a>
                   </li>
                   <li class="nav-item h5">
-                    <a class="nav-link active" href="#">Preguntas frecuentes</a>
+                    <a class="nav-link active" href="#preguntasFrecuentes">Preguntas frecuentes</a>
                   </li>
                   <li class="nav-item h5">
                     <a class="nav-link active" href="#testimonios">Testimonios</a>
@@ -131,7 +136,7 @@
 
     				<div class="mt-4">
     					<div class="d-flex justify-content-center links">
-    						¿No tenés cuenta? <a href="#" class="ml-2">Registrate</a>
+    						¿No tenés cuenta? <a href="/register" class="ml-2">Registrate</a>
     					</div>
     					<div class="d-flex justify-content-center links">
                             @if (Route::has('password.request'))
@@ -145,6 +150,8 @@
     		</div>
         </div>
         </section>
+
+
         {{-- seccion de testimonios --}}
         <section class="" style="background-color:LightSteelBlue">
 
@@ -154,7 +161,7 @@
                   <h4 class="mt-4">Angelina Jolie</h4>
 
                   <p class= "text-dark p-2 m-3">
-                     “En Touch 3.0 hay muchas personas en la misma que yo. Soy de EEUU y ahora me encuentro estudiando en Buenos Aires, gracias a esta aplicacion pude hacer  amigos y amigas para no aburrirme y salir a divertirme los fines de semana...y no descarto conocer al amor de mi vida!!”.
+                     “En Touch 2.0 hay muchas personas en la misma que yo. Soy de EEUU y ahora me encuentro estudiando en Buenos Aires, gracias a esta aplicacion pude hacer  amigos y amigas para no aburrirme y salir a divertirme los fines de semana...y no descarto conocer al amor de mi vida!!”.
                   </p>
               </div>
               <div class="col-sm-12 col-md-6 col-lg-3 text-center p-3">
@@ -183,12 +190,45 @@
               </div>
             </div>
         </section>
+
+        {{-- seccion de preguntasFrecuentes --}}
+        <section class="" style="background-color:LightSteelBlue">
+        
+            <div id="preguntasFrecuentes" class="container-fluid row pb-5">
+              <div class="col-sm-12 col-md-6 col-lg-3 text-center p-3">
+                  <h4 class="mt-4">¿Qué es Touch2.0.com?</h4>
+                  <p class= "text-dark p-2 m-3">
+                     Touch2.0.com es un sitio especializado en citas en línea, que ayuda a personas de Latinoamérica y a gente de orígenes occidentales a encontrar su pareja ideal. Ofrecemos un servicio acogedor que combinado a una búsqueda sofisticada y a las opciones de mensajería, harán de la búsqueda de su verdadero amor una experiencia divertida y agradable.
+                  </p>
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-3 text-center p-3">
+                  <h4 class="mt-4">¿Por qué utilizar Touch2.0.com?</h4>
+                  <p class= "text-dark p-2 m-3">
+                     A diferencia de otros sitios, Touch2.0.com ofrece un servicio amigable y personalizado que se combina con la más reciente tecnología. También somos conscientes de las motivaciones y aspiraciones de aquellas personas de diferentes orígenes que buscan encontrar su pareja ideal y sentimos que nuestras experiencias pueden ser de gran ayuda. Entendemos que algunas veces... ¡la persona perfecta para usted se encuentra al otro lado del mundo! Pero no importa dónde esté esa persona especial, o por qué usted desea conocerla, nosotros podemos ayudarle a encontrar a su pareja ideal."
+                  </p>
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-3 text-center p-3">
+                <h4 class="mt-4">Beneficios para los miembros de Touch2.0:</h4>
+               <p class= "text-dark p-2 m-3">
+                   Busque entre miles de perfiles de atractivos hombres y mujeres de todos los orígenes que desean encontrar a alguien como usted. Su bandeja de entrada personal le permite encontrar fácilmente y de forma anónima a la pareja perfecta. Registre un perfil al instante y agregue una foto.
+                </p>
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-3 text-center p-3">
+                <h4 class="mt-4">¿Cuánto cuesta convertirse en suscriptor?</h4>
+                <p class= "text-dark p-2 m-3">
+                   Absolutamente nada, es totalmente gratuito.
+                </p>
+              </div>
+            </div>
+        </section>
+
+
         {{-- nosotros --}}
         <section id="nosotros" class="pb-5 pt-5" style="background-color:DarkSlateGray">
             <div class="row container-fluid">
 
               <div class="col-lg-4 text-light text-justify">
-                <h1 class="marca p-2">Touch 3.0</h1>
+                <h1 class="marca p-2">Touch 2.0</h1>
                     <p class="p-2">Probá conocer hombre y mujeres solos y solas en Touch 3.0, el mayor sitio de citas para buscar pareja y encuentros online de Argentina. En Touch 3.0 estás a un clic de encontrar solos y solas en tu ciudad para iniciar una relación seria o para vivir una aventura romántica. Touch 3.0 cuenta con un servicio de chat y buscador que te permitirán encontrar pareja y concretar citas online de acuerdo a tus intereses y gustos. Miles de mujeres y hombres de Latinoamérica han buscado pareja e iniciaron una relación a partir de nuestro sitio de citas online. Empezá ahora a conocer gente y descubrí la diversión del online dating!.</p>
               </div>
               <div class="col-lg-4 text-light text-justify">
@@ -206,7 +246,7 @@
               </div>
               <div class="col-lg-4 text-light text-justify">
                 <h2 class=" p-2 mt-5 text-center">Actualización permanente</h2>
-                  <p class="p-2">Touch 3.0 es un equipo de profesionales que actualiza su informacion constantemente y notifica a todos sus usuarios para que puedan estar al tanto de ellas y poder disfrutar de todo lo que brinda la app. Siempre a la vanguardia en lo que respecta a las citas on line, para que puedas navegar, chatear, compartir y conocer con la maxima seguridad posible a esa persona que te espera del otro lado.</p>
+                  <p class="p-2">Touch 2.0 es un equipo de profesionales que actualiza su informacion constantemente y notifica a todos sus usuarios para que puedan estar al tanto de ellas y poder disfrutar de todo lo que brinda la app. Siempre a la vanguardia en lo que respecta a las citas on line, para que puedas navegar, chatear, compartir y conocer con la maxima seguridad posible a esa persona que te espera del otro lado.</p>
                   <div class="text-center">
                     <form class="" action="#" method="post">
                       <input type="text" name="letter" value="" size="20"><br>
@@ -222,7 +262,7 @@
               <a class="text-white pt-3 m-3" href="">Seguridad</a>
               <a class="text-white pt-3 m-3" href="">Sugerencias</a>
               <a class="text-white pt-3 m-3" href="">Datos</a>
-              <p class="footer-bottom-text mt-2">Todos los derechos reservados por ©Touch3.0</p>
+              <p class="footer-bottom-text mt-2">Todos los derechos reservados por ©Touch2.0</p>
           </footer>
     </body>
 </html>
