@@ -93,6 +93,7 @@
                                                         <textarea class="form-control mt-2" id="message" rows="3" placeholder="¿Qué tenés ganas de contar?" form="publicar" name="publica"></textarea>
                                                     </div>
                                                 </div>
+
                                                 <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
                                                     <div class="form-group">
                                                         <div class="custom-file">
@@ -102,6 +103,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <!-- boton para compartir -->
                                             <div class="btn-toolbar justify-content-between">
                                                 <div class="btn-group">

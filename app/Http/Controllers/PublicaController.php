@@ -104,4 +104,28 @@ class PublicaController extends Controller
         $registro -> delete();
         return redirect('/home');
     }
+    
+    //subir foto
+    public function foto(Request $datos){
+        $rules = [
+            "foto" => 'required',
+            "publica" => 'required',
+        ];
+
+        $this->validate($datos,$rules);
+        $user = Auth::user();
+        $publicacion = new Publication();
+
+        $publicacion -> titulo = $datos['foto'];
+        $publicacion -> publicacion = $datos['publica'];
+        $publicacion -> user_id = $user->id;
+        $publicacion -> save();
+
+        $publicado = Publication::all();
+        // return view('/home',compact('publicado'));
+        return redirect('/home');
+    }
+
+
+
 }

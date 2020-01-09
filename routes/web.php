@@ -24,3 +24,5 @@ Route::post('/publica', 'PublicaController@publica');
 Route::post('/foto','HomeController@foto');
 
 Route::get('/eliminarPublica/{id}','PublicaController@destroy');
+
+Route::post('/subirfoto', 'PublicaController@publicafoto');
