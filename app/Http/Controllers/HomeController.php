@@ -33,31 +33,9 @@ class HomeController extends Controller
     {
 
         $publicado = Publication::orderBy('created_at','desc')->get();
-        return view('home',compact('publicado','ahora','dif'));
+        return view('home',compact('publicado'));
     }
 
 
-    public function foto(Request $img)
-    {
 
-        $rules = [
-            "foto" => 'required',
-        ];
-
-        $this->validate($img,$rules);
-
-        if ($img -> file('foto') == null) {
-            return redirect()->back();
-        }
-        $usuario = User::find($img['id']);
-
-        $ruta = $img -> file('foto') -> store('public/images/fotos');
-        $img = basename($ruta);
-
-        $usuario -> foto = $img;
-
-        $usuario -> save();
-        $publicado = Publication::all();
-        return redirect('/home');
-    }
 }
