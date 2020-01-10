@@ -89,15 +89,20 @@
                                                 <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
 
                                                     <div class="form-group">
-                                                        <input type="text" name="titulo" placeholder="titulo de la publicacion" size="48" class="form-control">
-                                                        <textarea class="form-control mt-2" id="message" rows="3" placeholder="¿Qué tenés ganas de contar?" form="publicar" name="publica"></textarea>
+                                                        <input type="text" name="titulo" placeholder="titulo de la publicacion" size="48" class="form-control @error('titulo') is-invalid @enderror" value="{{ old('titulo') }}" required>
+                                                        @error('titulo')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                        <textarea class="form-control mt-2" id="message" rows="3" placeholder="¿Qué tenés ganas de contar?" form="publicar" name="publica" class="@error('publica') is-invalid @enderror" required></textarea>
                                                     </div>
                                                 </div>
 
                                                 <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
                                                     <div class="form-group">
                                                         <div class="custom-file">
-                                                            <input type="file" class="custom-file-input" id="customFile">
+                                                            <input type="file" class="custom-file-input" id="customFile" name="imagen">
                                                             <label class="custom-file-label" for="customFile">Carga de imágenes</label>
                                                         </div>
                                                     </div>
@@ -165,11 +170,14 @@
                                     <!-- tiempo que lo publico -->
 
                                     <div class="card-body">
-                                        @php
 
-                                        @endphp
-                                        <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>publicado </div>
+                                        <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>publicado {{$publica->created_at->diffForHumans()}}</div>
                                         <h5 class="card-title">{{$publica->titulo}}</h5>
+                                        @if (isset($publica->imagen))
+                                            <img class="img-fluid" src="storage/images/publication/{{$publica->imagen}}" alt="">
+                                        @endif
+
+
                                         <!-- texto publicAdo -->
                                         <p class="card-text">{{$publica->publicacion}}</p>
                                     </div>

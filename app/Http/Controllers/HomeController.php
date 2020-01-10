@@ -31,15 +31,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $dif = Carbon::now()->diffForHumans(Carbon::now()->subYear());
-        $publica = Publication::find(8);
-        $ahora = Carbon::now();
 
-        $publicado = Publication::all();
+        $publicado = Publication::orderBy('created_at','desc')->get();
         return view('home',compact('publicado','ahora','dif'));
     }
 
-  
+
     public function foto(Request $img)
     {
 
