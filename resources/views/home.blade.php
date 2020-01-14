@@ -23,7 +23,7 @@
 
                                         <div class="text-center">
                                                 <a href="" data-toggle="modal" data-target="#exampleModal">
-                                                    <img class="img-fluid" src="storage/images/users/{{ Auth::user()->foto }}" alt="">
+                                                    <img class="img-fluid" src="storage/images/users/{{ Auth::user()->foto }}" alt="foto">
                                                 </a>
                                                 <div class="h3 mt-2">{{ Auth::user()->name }}</div>
                                         </div>
