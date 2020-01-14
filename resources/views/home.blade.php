@@ -58,8 +58,18 @@
                                             <div class="h5">52342</div>
                                         </li>
                                         <li class="list-group-item">
-                                            <div class="h6 text-muted">Siguiendo</div>
-                                            <div class="h5">6758</div>
+                                            <div class="h6 text-muted">Siguiendo a</div>
+                                            <div class="h5">
+                                                @foreach ($siguiendo as $id)
+                                                @foreach ($usuarios as $usuario)
+                                                    @if ($usuario->id == $id)
+                                                        <img src="storage/images/users/{{$usuario->foto}}" alt="" width="30px">
+                                                        {{$usuario->name}}
+                                                        <br>
+                                                    @endif
+                                                @endforeach
+                                                @endforeach
+                                            </div>
                                         </li>
                                         <li class="list-group-item">Mensajes</li>
                                     </ul>
