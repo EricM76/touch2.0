@@ -32,7 +32,7 @@ class HomeController extends Controller
     public function index()
     {
 
-        $publicado = Publication::orderBy('created_at','desc')->get();
+        $publicado = Publication::orderBy('created_at','desc')->paginate(3);
         return view('home',compact('publicado'));
     }
 

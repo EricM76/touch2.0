@@ -199,6 +199,10 @@
 
                                 </div>
                                 @endforeach
+                                <div class="d-flex justify-content-center my-4">
+                                    <p>{{$publicado->links()}}</p>
+                                </div>
+
                 </div>
             </div>
         </div>
