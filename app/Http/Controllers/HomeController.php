@@ -36,6 +36,14 @@ class HomeController extends Controller
         return view('home',compact('publicado'));
     }
 
-
+    public function foto(Request $datos)
+    {
+        $usuario = User::find($datos->id);
+        $ruta = $datos -> file('foto') -> store('public/images/users');
+        $image = basename($ruta);
+        $usuario -> foto = $image;
+        $usuario -> save();
+        return redirect()->back();
+}
 
 }

@@ -67,7 +67,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         // dd($data['foto']);
-        $ruta = $data['foto'] -> store('public/images/fotos');
+        $ruta = $data['foto'] -> store('public/images/users');
 
         $img = basename($ruta);
 

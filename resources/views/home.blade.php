@@ -23,7 +23,7 @@
 
                                         <div class="text-center">
                                                 <a href="" data-toggle="modal" data-target="#exampleModal">
-                                                    <img class="img-fluid" src="storage/images/fotos/{{ Auth::user()->foto }}" alt="">
+                                                    <img class="img-fluid" src="storage/images/users/{{ Auth::user()->foto }}" alt="">
                                                 </a>
                                                 <div class="h3 mt-2">{{ Auth::user()->name }}</div>
                                         </div>
@@ -140,7 +140,7 @@
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <!-- primer imagen de publicacion -->
                                                 <div class="mr-2">
-                                                    <img class="rounded-circle" width="45" src="storage/images/fotos/{{$publica->user->foto}}" alt="">
+                                                    <img class="rounded-circle" width="45" src="storage/images/users/{{$publica->user->foto}}" alt="">
                                                 </div>
                                                 <!-- usuario y quien publico  -->
                                                 <div class="ml-2">
@@ -158,7 +158,7 @@
                                                     <!-- eleccion de configuracion -->
                                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
                                                         <div class="h6 dropdown-header">Configuracion</div>
-                                                        <a class="dropdown-item" href="#">Seguir</a>
+                                                    <a class="dropdown-item" href="/siguiendo/{{$publica->user->id}}">Seguir</a>
                                                         <a class="dropdown-item" href="#">Ocultar</a>
                                                         <a class="dropdown-item" href="#">Reportar</a>
                                                     </div>

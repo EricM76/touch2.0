@@ -25,4 +25,4 @@ Route::post('/foto','HomeController@foto');
 
 Route::get('/eliminarPublica/{id}','PublicaController@destroy');
 
-Route::post('/subirfoto', 'PublicaController@publicafoto');
+Route::get('/siguiendo/{id}', 'UserController@siguiendo');
