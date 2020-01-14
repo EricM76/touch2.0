@@ -55,7 +55,17 @@
                                     <ul class="list-group list-group-flush">
                                         <li class="list-group-item">
                                             <div class="h6 text-muted">Seguidores</div>
-                                            <div class="h5">52342</div>
+                                            <div class="h5">
+                                                @foreach ($seguidores as $id)
+                                                @foreach ($usuarios as $usuario)
+                                                    @if ($usuario->id == $id)
+                                                        <img src="storage/images/users/{{$usuario->foto}}" alt="" width="30px">
+                                                        {{$usuario->name}}
+                                                        <br>
+                                                    @endif
+                                                @endforeach
+                                                @endforeach
+                                            </div>
                                         </li>
                                         <li class="list-group-item">
                                             <div class="h6 text-muted">Siguiendo a</div>

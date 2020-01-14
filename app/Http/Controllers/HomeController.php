@@ -35,9 +35,11 @@ class HomeController extends Controller
         $publicado = Publication::orderBy('created_at','desc')->paginate(3);
         $siguiendoReg = Auth::user()->siguiendo;
         $siguiendo = explode(",",$siguiendoReg);
+        $seguidoresReg = Auth::user()->seguidores;
+        $seguidores = explode(",",$seguidoresReg);
         // dd($siguiendo);
         $usuarios = User::all();
-        return view('home',compact('publicado','siguiendo','usuarios'));
+        return view('home',compact('publicado','siguiendo','usuarios','seguidores'));
     }
 
     public function foto(Request $datos)
