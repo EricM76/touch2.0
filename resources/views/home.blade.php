@@ -109,13 +109,18 @@
                                                 <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
 
                                                     <div class="form-group">
-                                                        <input type="text" name="titulo" placeholder="titulo de la publicacion" size="48" class="form-control @error('titulo') is-invalid @enderror" value="{{ old('titulo') }}" required>
+                                                        <input type="text" name="titulo" placeholder="titulo de la publicacion" size="48" class="form-control @error('titulo') is-invalid @enderror" value="{{ old('titulo') }}" >
                                                         @error('titulo')
                                                             <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $message }}</strong>
+                                                                <p>{{ $message }}</p>
                                                             </span>
                                                         @enderror
-                                                        <textarea class="form-control mt-2" id="message" rows="3" placeholder="¿Qué tenés ganas de contar?" form="publicar" name="publica" class="@error('publica') is-invalid @enderror" required></textarea>
+                                                        <textarea class="form-control mt-2 @error('comentarios') is-invalid @enderror" id="comentarios" rows="3" placeholder="¿Qué tenés ganas de contar?" form="publicar" name="comentarios">{{ old('comentarios') }}</textarea>
+                                                        @error('comentarios')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <p>{{ $message }}</p>
+                                                            </span>
+                                                        @enderror
                                                     </div>
                                                 </div>
 

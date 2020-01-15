@@ -40,7 +40,7 @@ class PublicaController extends Controller
 
          $rules = [
              "titulo" => 'required',
-             "publica" => 'required',
+             "comentarios" => 'required',
          ];
 
          $this->validate($datos,$rules);
@@ -48,7 +48,7 @@ class PublicaController extends Controller
          $publicacion = new Publication();
 
          $publicacion -> titulo = $datos['titulo'];
-         $publicacion -> publicacion = $datos['publica'];
+         $publicacion -> publicacion = $datos['comentarios'];
          $publicacion -> user_id = $user->id;
          if ($datos->file('imagen')!=null) {
             $ruta = $datos -> file('imagen') -> store('public/images/publication');
