@@ -17,6 +17,7 @@ class CreatePublicationsTable extends Migration
             $table->bigIncrements('id');
             $table->string('titulo');
             $table->string('publicacion');
+            $table->string('alcance');
             $table->integer('user_id');
             $table->string('imagen')->nullable();
             $table->timestamps();

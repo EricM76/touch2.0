@@ -32,14 +32,16 @@ class HomeController extends Controller
     public function index()
     {
 
-        $publicado = Publication::orderBy('created_at','desc')->paginate(3);
+        $publico = Publication::where('alcance','publico')->orderBy('created_at','desc')->paginate(3);
+        $amigos = Publication::where('alcance','amigos')->orderBy('created_at','desc')->paginate(3);
+        $solo = Publication::where('alcance','solo')->orderBy('created_at','desc')->paginate(3);
         $siguiendoReg = Auth::user()->siguiendo;
         $siguiendo = explode(",",$siguiendoReg);
         $seguidoresReg = Auth::user()->seguidores;
         $seguidores = explode(",",$seguidoresReg);
         // dd($siguiendo);
         $usuarios = User::all();
-        return view('home',compact('publicado','siguiendo','usuarios','seguidores'));
+        return view('home',compact('publico','siguiendo','usuarios','seguidores','amigos','solo'));
     }
 
     public function foto(Request $datos)

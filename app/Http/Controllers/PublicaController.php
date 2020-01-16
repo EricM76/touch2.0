@@ -46,9 +46,12 @@ class PublicaController extends Controller
          $this->validate($datos,$rules);
          $user = Auth::user();
          $publicacion = new Publication();
-
+         if ($datos['alcance'] == null) {
+             $datos['alcance'] = 'publico';
+         }
          $publicacion -> titulo = $datos['titulo'];
          $publicacion -> publicacion = $datos['comentarios'];
+         $publicacion -> alcance = $datos['alcance'];
          $publicacion -> user_id = $user->id;
          if ($datos->file('imagen')!=null) {
             $ruta = $datos -> file('imagen') -> store('public/images/publication');

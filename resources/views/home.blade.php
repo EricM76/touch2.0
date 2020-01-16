@@ -146,9 +146,17 @@
                                                         <i class="fa fa-globe"></i>
                                                     </button>
                                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupDrop1">
-                                                        <a class="dropdown-item" href="#"><i class="fa fa-globe"></i> Publico</a>
-                                                        <a class="dropdown-item" href="#"><i class="fa fa-users"></i> Amigos</a>
-                                                        <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Solo yo</a>
+
+                                                        <script>
+                                                            window.onload = function(){
+                                                                var alcance = document.getElementById('alcance');
+                                                            }
+
+                                                        </script>
+                                                        <a id="publico" class="dropdown-item" href="#" onclick="event.preventDefault();alcance.setAttribute('value','publico');console.log(alcance);"><i class="fa fa-globe"></i> Publico</a>
+                                                        <a id="amigos" class="dropdown-item" href="#" onclick="event.preventDefault();alcance.setAttribute('value','amigos');console.log(alcance);"><i class="fa fa-users"></i> Amigos</a>
+                                                        <a id="solo" class="dropdown-item" href="#" onclick="event.preventDefault();alcance.setAttribute('value','solo');console.log(alcance);"><i class="fas fa-user"></i> Solo yo</a>
+                                                        <input id="alcance" type="text" name="alcance" hidden>
                                                     </div>
                                                 </div>
                                             </div>
@@ -156,8 +164,13 @@
                                     </div>
                                 </div>
 
-                                <!--publicacion-->
-                                @foreach ($publicado as $publica)
+                                <!--muro publico-->
+
+                                <div class="bg-info p-2 mt-2">
+                                    <h4 class="m-2 text-light"><i class="fa fa-globe"></i> MURO PÚBLICO</h4>
+                                </div>
+
+                                @foreach ($publico as $publica)
                                 <div class="card gedf-card mt-3">
 
                                     <div class="card-header ">
@@ -210,8 +223,8 @@
                                     <!-- boton de mg comentar  -->
                                     @if ($publica->user_id == Auth::user()->id)
                                     <div class="card-footer">
-                                    <a href="/eliminarPublica/{{$publica->id}}" class="card-link"><i class="fa fa-gittip"></i> Eliminar</a>
-                                        <a href="#" class="card-link"><i class="fa fa-comment"></i> Editar</a>
+                                    <a href="/eliminarPublica/{{$publica->id}}" class="card-link"><i class="fas fa-times-circle"></i> Eliminar</a>
+                                        <a href="#" class="card-link"><i class="fas fa-edit"></i> Editar</a>
                                     </div>
                                     @else
                                     <div class="card-footer">
@@ -225,7 +238,163 @@
                                 </div>
                                 @endforeach
                                 <div class="d-flex justify-content-center my-4">
-                                    <p>{{$publicado->links()}}</p>
+                                    <a href="">ver más publicaciones</a>
+                                </div>
+
+
+                                {{-- muro de amigos --}}
+
+                                <div class="bg-success p-2 mt-2">
+                                    <h4 class="m-2 text-light"><i class="fa fa-users"></i> MURO DE AMIGOS</h4>
+                                </div>
+
+                                @foreach ($amigos as $publica)
+                                <div class="card gedf-card mt-3">
+
+                                    <div class="card-header ">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <!-- primer imagen de publicacion -->
+                                                <div class="mr-2">
+                                                    <img class="rounded-circle" width="45" src="storage/images/users/{{$publica->user->foto}}" alt="">
+                                                </div>
+                                                <!-- usuario y quien publico  -->
+                                                <div class="ml-2">
+                                                    <div class="h7 text-muted">Publicado por:</div>
+                                                    <div class="h5 m-0">{{$publica->user->name}}</div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <!-- boton para puntos de configuracion -->
+                                                <div class="dropdown">
+                                                    <button class="btn btn-link dropdown-toggle" type="button" id="gedf-drop1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fa fa-ellipsis-h"></i>
+                                                    </button>
+
+                                                    <!-- eleccion de configuracion -->
+                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
+                                                        <div class="h6 dropdown-header">Configuracion</div>
+                                                    <a class="dropdown-item" href="/siguiendo/{{$publica->user->id}}">Seguir</a>
+                                                        <a class="dropdown-item" href="#">Ocultar</a>
+                                                        <a class="dropdown-item" href="#">Reportar</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- tiempo que lo publico -->
+
+                                    <div class="card-body">
+
+                                        <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>publicado {{$publica->created_at->diffForHumans()}}</div>
+                                        <h5 class="card-title">{{$publica->titulo}}</h5>
+                                        @if (isset($publica->imagen))
+                                            <img class="img-fluid" src="storage/images/publication/{{$publica->imagen}}" alt="">
+                                        @endif
+
+
+                                        <!-- texto publicAdo -->
+                                        <p class="card-text">{{$publica->publicacion}}</p>
+                                    </div>
+
+                                    <!-- boton de mg comentar  -->
+                                    @if ($publica->user_id == Auth::user()->id)
+                                    <div class="card-footer">
+                                    <a href="/eliminarPublica/{{$publica->id}}" class="card-link"><i class="fas fa-times-circle"></i> Eliminar</a>
+                                        <a href="#" class="card-link"><i class="fas fa-edit"></i> Editar</a>
+                                    </div>
+                                    @else
+                                    <div class="card-footer">
+                                        <a href="#" class="card-link"><i class="fa fa-gittip"></i> Me gusta</a>
+                                        <a href="#" class="card-link"><i class="fa fa-comment"></i> Comentar</a>
+                                        <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Compartir</a>
+                                    </div>
+                                    @endif
+
+
+                                </div>
+                                @endforeach
+                                <div class="d-flex justify-content-center my-4">
+                                    <a href="">ver más publicaciones</a>
+                                </div>
+
+
+                                {{-- muro personal --}}
+
+                                <div class="bg-danger p-2 mt-2">
+                                    <h4 class="m-2 text-light"><i class="fa fa-users"></i> MURO PERSONAL</h4>
+                                </div>
+
+                                @foreach ($solo as $publica)
+                                <div class="card gedf-card mt-3">
+
+                                    <div class="card-header ">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <!-- primer imagen de publicacion -->
+                                                <div class="mr-2">
+                                                    <img class="rounded-circle" width="45" src="storage/images/users/{{$publica->user->foto}}" alt="">
+                                                </div>
+                                                <!-- usuario y quien publico  -->
+                                                <div class="ml-2">
+                                                    <div class="h7 text-muted">Publicado por:</div>
+                                                    <div class="h5 m-0">{{$publica->user->name}}</div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <!-- boton para puntos de configuracion -->
+                                                <div class="dropdown">
+                                                    <button class="btn btn-link dropdown-toggle" type="button" id="gedf-drop1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fa fa-ellipsis-h"></i>
+                                                    </button>
+
+                                                    <!-- eleccion de configuracion -->
+                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
+                                                        <div class="h6 dropdown-header">Configuracion</div>
+                                                    <a class="dropdown-item" href="/siguiendo/{{$publica->user->id}}">Seguir</a>
+                                                        <a class="dropdown-item" href="#">Ocultar</a>
+                                                        <a class="dropdown-item" href="#">Reportar</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- tiempo que lo publico -->
+
+                                    <div class="card-body">
+
+                                        <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>publicado {{$publica->created_at->diffForHumans()}}</div>
+                                        <h5 class="card-title">{{$publica->titulo}}</h5>
+                                        @if (isset($publica->imagen))
+                                            <img class="img-fluid" src="storage/images/publication/{{$publica->imagen}}" alt="">
+                                        @endif
+
+
+                                        <!-- texto publicAdo -->
+                                        <p class="card-text">{{$publica->publicacion}}</p>
+                                    </div>
+
+                                    <!-- boton de mg comentar  -->
+                                    @if ($publica->user_id == Auth::user()->id)
+                                    <div class="card-footer">
+                                    <a href="/eliminarPublica/{{$publica->id}}" class="card-link"><i class="fas fa-times-circle"></i> Eliminar</a>
+                                        <a href="#" class="card-link"><i class="fas fa-edit"></i> Editar</a>
+                                    </div>
+                                    @else
+                                    <div class="card-footer">
+                                        <a href="#" class="card-link"><i class="fa fa-gittip"></i> Me gusta</a>
+                                        <a href="#" class="card-link"><i class="fa fa-comment"></i> Comentar</a>
+                                        <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Compartir</a>
+                                    </div>
+                                    @endif
+
+
+                                </div>
+                                @endforeach
+                                <div class="d-flex justify-content-center my-4">
+                                    <a href="">ver más publicaciones</a>
                                 </div>
 
                 </div>
