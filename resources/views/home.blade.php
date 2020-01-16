@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">Touch 2.0</div>
+            <div class="card" style="background-color:Ivory;box-shadow: 10px 10px 5px 5px black ;">
+                <div class="card-header text-light h4 text-right" style="background-color:DarkSalmon;text-shadow: 0.1em 0.1em black">...estás a solo un <strong>touch</strong>  de encontrar a la persona que deseas...</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -84,13 +84,41 @@
                                         <li class="list-group-item">Mensajes</li>
                                     </ul>
                                 </div>
+
+                                <div id="carouselExampleSlidesOnly" class="carousel slide my-2" data-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img src="/images/banner2a.png" class="d-block w-100" alt="...">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="/images/banner2b.png" class="d-block w-100" alt="...">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="/images/banner2c.png" class="d-block w-100" alt="...">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="/images/banner2d.png" class="d-block w-100" alt="...">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="/images/banner2e.png" class="d-block w-100" alt="...">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="/images/banner2f.png" class="d-block w-100" alt="...">
+                                        </div>
+                                    </div>
+                                </div>
+                                <img class="my-4" width="100%" src="/images/banner3b.png" alt="">
                             </div>
+                             <!--- hacer una publicacion-->
+
                             <div class="col-md-6 gedf-main">
-                                <!--- hacer una publicacion-->
+                                <div class="p-2 mt-2" style="background-color:darkred">
+                                    <h4 class="m-2 text-light"><i class="fa fa-paperclip"></i> PUBLICACIONES</h4>
+                                </div>
                                 <div class="card gedf-card">
                                     <div class="card-header">
                                         <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
-                                            <li class="nav-item">
+                                            <li class="nav-item" >
                                                 <a class="nav-link active" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="true">Hacer una Publicación</a>
                                             </li>
 
@@ -154,7 +182,7 @@
 
                                                         </script>
                                                         <a id="publico" class="dropdown-item" href="#" onclick="event.preventDefault();alcance.setAttribute('value','publico');console.log(alcance);"><i class="fa fa-globe"></i> Publico</a>
-                                                        <a id="amigos" class="dropdown-item" href="#" onclick="event.preventDefault();alcance.setAttribute('value','amigos');console.log(alcance);"><i class="fa fa-users"></i> Amigos</a>
+                                                        <a id="amigos" class="dropdown-item" href="#" onclick="event.preventDefault();alcance.setAttribute('value','amigos');console.log(alcance);"><i class="fa fa-users"></i> Seguidores</a>
                                                         <a id="solo" class="dropdown-item" href="#" onclick="event.preventDefault();alcance.setAttribute('value','solo');console.log(alcance);"><i class="fas fa-user"></i> Solo yo</a>
                                                         <input id="alcance" type="text" name="alcance" hidden>
                                                     </div>
@@ -166,12 +194,12 @@
 
                                 <!--muro publico-->
 
-                                <div class="bg-info p-2 mt-2">
+                                <div class="p-2 mt-2" style="background-color:darkred">
                                     <h4 class="m-2 text-light"><i class="fa fa-globe"></i> MURO PÚBLICO</h4>
                                 </div>
 
                                 @foreach ($publico as $publica)
-                                <div class="card gedf-card mt-3">
+                                <div class="card gedf-card mt-3" style="box-shadow: 2px 2px 2px 2px grey;">
 
                                     <div class="card-header ">
                                         <div class="d-flex justify-content-between align-items-center">
@@ -244,12 +272,15 @@
 
                                 {{-- muro de amigos --}}
 
-                                <div class="bg-success p-2 mt-2">
+                                <div class="p-2 mt-2" style="background-color:darkred">
                                     <h4 class="m-2 text-light"><i class="fa fa-users"></i> MURO DE AMIGOS</h4>
                                 </div>
 
+                                @foreach ($siguiendo as $id)
                                 @foreach ($amigos as $publica)
-                                <div class="card gedf-card mt-3">
+                                @if ($publica->user_id == $id)
+
+                                <div class="card gedf-card mt-3" style="box-shadow: 2px 2px 2px 2px grey;">
 
                                     <div class="card-header ">
                                         <div class="d-flex justify-content-between align-items-center">
@@ -314,7 +345,10 @@
 
 
                                 </div>
+                                @endif
                                 @endforeach
+                                @endforeach
+
                                 <div class="d-flex justify-content-center my-4">
                                     <a href="">ver más publicaciones</a>
                                 </div>
@@ -322,12 +356,14 @@
 
                                 {{-- muro personal --}}
 
-                                <div class="bg-danger p-2 mt-2">
+                                <div class="p-2 mt-2" style="background-color:darkred">
                                     <h4 class="m-2 text-light"><i class="fa fa-users"></i> MURO PERSONAL</h4>
                                 </div>
 
                                 @foreach ($solo as $publica)
-                                <div class="card gedf-card mt-3">
+                                @if ($publica->user_id == Auth::user()->id)
+
+                                <div class="card gedf-card mt-3" style="box-shadow: 2px 2px 2px 2px grey;">
 
                                     <div class="card-header ">
                                         <div class="d-flex justify-content-between align-items-center">
@@ -392,10 +428,26 @@
 
 
                                 </div>
+                                @endif
                                 @endforeach
                                 <div class="d-flex justify-content-center my-4">
                                     <a href="">ver más publicaciones</a>
                                 </div>
+
+                </div>
+                <div class="col-3">
+                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="/images/banner1a.png" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/images/banner1b.png" class="d-block w-100" alt="...">
+                            </div>
+                        </div>
+                    </div>
+                    <img class="my-4" width="100%" src="/images/banner3a.png" alt="">
+                    <img class="my-4" width="100%" src="/images/banner3c.png" alt="">
 
                 </div>
             </div>

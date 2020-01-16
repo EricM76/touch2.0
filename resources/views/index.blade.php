@@ -153,7 +153,7 @@
 
 
         {{-- seccion de testimonios --}}
-        <section class="" style="background-color:LightSteelBlue">
+        <section class="testimonios" style="background-color:LightSteelBlue">
 
             <div id="testimonios" class="container-fluid row pb-5">
               <div class="col-sm-12 col-md-6 col-lg-3 text-center p-3">
@@ -193,7 +193,7 @@
 
         {{-- seccion de preguntasFrecuentes --}}
         <section class="" style="background-color:LightSteelBlue">
-        
+
             <div id="preguntasFrecuentes" class="container-fluid row pb-5">
               <div class="col-sm-12 col-md-6 col-lg-3 text-center p-3">
                   <h4 class="mt-4">¿Qué es Touch2.0.com?</h4>

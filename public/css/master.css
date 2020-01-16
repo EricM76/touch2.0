@@ -89,7 +89,7 @@ src: url(../fonts/GentiumBookBasic-Bold.ttf);
 font-family: PermanentMarker-Regular;
 src: url(../fonts/PermanentMarker-Regular.ttf);
 }
-h4{
+.testimonios h4{
   font-family: PermanentMarker-Regular;
   font-weight: bold;
 }
